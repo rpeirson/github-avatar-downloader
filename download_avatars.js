@@ -1,3 +1,6 @@
+var owner = process.argv[2]
+var name = process.argv[3]
+
 var request = require('request');
 var secret = require('./secrets');
 var fs = require('fs');
@@ -22,7 +25,7 @@ function getRepoContributors(repoOwner, repoName, cb) {
   });
 }
 
-getRepoContributors('jquery', 'jquery', function(giantList){
+getRepoContributors(owner, name, function(giantList){
   var pic = 0
 for (var user of giantList) {
     console.log(user.avatar_url)
